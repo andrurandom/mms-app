@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import jsCookie from 'js-cookie';
+import Login from './Pages/Login/Login'
+import Dashboard from './Pages/Dashboard/Dashboard'
+import Home from './Pages/Home/Home';
+import StorePage from './Pages/Store/Store';
+
 
 function App() {
+let accessToken =  jsCookie.get('token')
+let userRole = jsCookie.get('role')
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+        <Routes>
+        {accessToken ? (
+            <>
+                <Route path="/" element={<Navigate to="/dashboard" />} />
+                <Route path="/login" element={<Navigate to="/dashboard" />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/store" element={<StorePage />} />
+                {userRole != 'SHO' ? (
+                    <>
+                        <Route path="/home" element={<Home />} />
+                    </> 
+                    ) : (
+                    <>
+                        <Route path="*" element={<Navigate to="/dashboard" />} />
+                    </>
+                )}
+            </>
+            ) : (
+            <>
+                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/" element={<Login />} />
+            </>
+        )}
+        </Routes>
+    </Router>
+    );
 }
 
-export default App;
+export default App

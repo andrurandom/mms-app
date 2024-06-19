@@ -1,0 +1,107 @@
+.subheader {
+  background-color: #B9BDE5;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+}
+
+.subheader-button {
+  background-color: #E52F2F;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.scrollbar {
+  height: 510px; /* Set a fixed height for the container */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+.subheader-button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.subheader-search {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.subheader-search input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 1em;
+  flex: 1;
+  height: 20px;
+  width: 300px;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: #7491b1;
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  padding: 20px;
+  /* margin-top: 20px; */
+  align-items: center;
+
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.header-title {
+  background-color: #E52F2F;
+  color: white;
+  padding: 10px 10px 0 10px;
+  border: none;
+  border-radius: 10px 10px 0 0;
+}
+
+.side-card {
+  background-color: white;
+  border-radius: 5px;
+  margin-left: 3% ;
+  width: 400px;
+  height: 500px;
+  text-align: center;
+  border-radius: 10px 10px;
+}
+
+
+.side-card table {
+  margin: 0 auto;
+  width: 95%;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 14px;
+}
+
+.side-card th {
+  color: rgb(249, 249, 249);
+}
+
+.side-card td {
+  padding: 3px;
+  border-bottom: 1px solid #ddd;
+}
+
+.side-card .item-name,
+.side-card .item-quantity {
+  background-color: #ffffff;
+}
